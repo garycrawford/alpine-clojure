@@ -1,18 +1,20 @@
 FROM gliderlabs/alpine:latest
-MAINTAINER info@garycrawford.co.uk
+MAINTAINER <info@garycrawford.co.uk>
 
-# Install Java
-RUN \
-  apk update && \
-  apk add openjdk7-jre-base
+# Install dependencies
+RUN apk update && \
+    apk add ca-certificates && \
+    apk add curl && \
+    apk add bash && \
+    apk add openjdk7-jre-base
+
+# Ensure lein can run as root
+ENV LEIN_ROOT 1
+
+COPY cacerts /usr/lib/jvm/java-1.7-openjdk/jre/lib/security/
+COPY cacerts /usr/lib/jvm/default-jvm/jre/lib/security/
 
 # Install Clojure
-RUN \
-  apk add ca-certificates && \
-  apk add curl && \
-  apk add bash && \
-  curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > /bin/lein && \
-  chmod u+x /bin/lein && \
-  lein
-
-ENV LEIN_ROOT 1
+RUN curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > /bin/lein && \
+    chmod u+x /bin/lein && \
+    lein
