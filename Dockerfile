@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:latest
+FROM gliderlabs/alpine:3.1
 MAINTAINER <info@garycrawford.co.uk>
 
 # Install dependencies
@@ -8,11 +8,11 @@ RUN apk update && \
     apk add bash && \
     apk add openjdk7-jre-base
 
+# Add required certs
+COPY cacerts /usr/lib/jvm/java-1.7-openjdk/jre/lib/security/
+
 # Ensure lein can run as root
 ENV LEIN_ROOT 1
-
-COPY cacerts /usr/lib/jvm/java-1.7-openjdk/jre/lib/security/
-COPY cacerts /usr/lib/jvm/default-jvm/jre/lib/security/
 
 # Install Clojure
 RUN curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > /bin/lein && \
