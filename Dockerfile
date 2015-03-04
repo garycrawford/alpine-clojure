@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:3.1
+FROM gliderlabs/alpine:latest
 MAINTAINER <info@garycrawford.co.uk>
 
 # Install dependencies
