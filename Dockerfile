@@ -17,4 +17,5 @@ ENV LEIN_ROOT 1
 # Install Clojure
 RUN curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > /bin/lein && \
     chmod u+x /bin/lein && \
-    lein
+    lein && \
+    lein repl
