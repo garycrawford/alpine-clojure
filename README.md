@@ -1,2 +1,2 @@
-# alpine-clojure
-A Docker container based on Alpine with Clojure included
+# busybox-clojure
+A Docker container based on Busybox with Clojure included
