@@ -12,7 +12,23 @@ RUN curl -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http:
      gunzip /tmp/jre.tar.gz && \
      tar xf /tmp/jre.tar -C /opt && \
      rm /tmp/jre.tar && \
-     ln -s /opt/jre1.8.0_25/bin/java /usr/bin/java
+     ln -s /opt/jre1.8.0_25/bin/java /usr/bin/java && \
+     cd /opt/jre1.8.0_25 && \
+     rm -rf lib/*javafx* \
+            lib/plugin.jar \
+            lib/ext/jfxrt.jar \
+            bin/javaws \
+            lib/javaws.jar \
+            lib/desktop \
+            plugin \
+            lib/deploy* \
+            lib/*javafx* \
+            lib/*jfx* \
+            lib/amd64/libdecora_sse.so \
+            lib/amd64/libprism_*.so \
+            lib/amd64/libfxplugins.so \
+            lib/amd64/libglass.so \
+            lib/amd64/libgstreamer-lite.so \
 
 # Ensure lein can run as root
 ENV LEIN_ROOT 1
