@@ -28,9 +28,8 @@ RUN curl -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http:
             lib/amd64/libprism_*.so \
             lib/amd64/libfxplugins.so \
             lib/amd64/libglass.so \
-            lib/amd64/libgstreamer-lite.so \
+            lib/amd64/libgstreamer-lite.so
 
-# Ensure lein can run as root
 ENV LEIN_ROOT 1
 
 # Install Clojure
