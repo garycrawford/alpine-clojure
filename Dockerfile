@@ -30,6 +30,9 @@ RUN curl -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http:
             lib/amd64/libglass.so \
             lib/amd64/libgstreamer-lite.so
 
+# This will be used as the REPL port
+EXPOSE 21212
+
 ENV LEIN_ROOT 1
 
 # Install Clojure
